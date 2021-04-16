@@ -1,0 +1,18 @@
+<div class="row p-3" *ngIf="isloaded" >
+  <div class="col-md-8">
+    <img  class="w-100 h-50 rounded" [src]="imgPrefix+movieDetails.backdrop_path" alt="">
+    <div >
+      <h2 class="text-primary py-3">{{ movieDetails.original_title }}</h2>
+      <p class="lead">{{ movieDetails.overview }}</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2 class="text-primary p-3">Top Ten</h2>
+    <div class="row m-2" *ngFor="let movie of topTen" >
+      <a [routerLink] ="['/moviedetails',movie.id]" class="row text-decoration-none">
+        <img class="topTenImg " [src]="imgPrefix+movie.poster_path" alt="">
+        <h5 class="p-3">{{ movie.title }}</h5>
+      </a>
+    </div>
+  </div>
+</div>
